@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Simple JavaScript Quiz</title>
+            <style>
+        body {
+            font-family: Courier, sans-serif;
+            background-color: #2F4F4F;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 180vh;
+            margin: 0;
+        }
+        #container{
+            width: 70%;
+            padding: 20px;
+            border-radius: 10px;
+            margin: 50px auto;
+        }
+        #Title {
+            background-color: #006400;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+        #question1 {
+            background-color: #2E8B57;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+         #question2 {
+            background-color: #2E8B57;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+         #question3 {
+            background-color: #2E8B57;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+         #question4 {
+            background-color: #2E8B57;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+         #question5 {
+            background-color: #2E8B57;
+            align-items: center;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+    </head>
+    <body>
+        <div id="container">
+            <header>
+                <h1 id="Title">Simple CSS Quiz</h1>
+                <p>Test your knowledge in <strong>CSS.</strong></p>
+            </header>
+            <section>
+                <div id="results"></div>
+                <form name="quizForm" onsubmit="return submitAnswers()">
+                    <h3 id="question1">1.  Which of the following is the correct way to apply an external CSS file to an HTML document?</h3>
+                    <input type="radio" name="q1" value="a" id="q1a">a. &lt;style.css&gt;<br>
+                    <input type="radio" name="q1" value="b" id="q1b">b. &lt;script&gt;<br>
+                    <input type="radio" name="q1" value="c" id="q1c">c. &lt;body&gt;<br>
+                    <input type="radio" name="q1" value="d" id="q1d">d. &lt;link&gt;<br>
+
+                    <h3 id="question2">2. What does the z-index property in CSS control?</h3>
+                    <input type="radio" name="q2" value="a" id="q2a">a. The zoom level of an element<br>
+                    <input type="radio" name="q2" value="b" id="q2b">b. The transparency of an element<br>
+                    <input type="radio" name="q2" value="c" id="q2c">c.  The stacking order of elements<br>
+                    <input type="radio" name="q2" value="d" id="q2d">d. The width of an element<br>
+
+                    <h3 id="question3">3.  Which CSS property is used to make text bold?</h3>
+                    <input type="radio" name="q3" value="a" id="q3a">a. font-style<br>
+                    <input type="radio" name="q3" value="b" id="q3b">b. text-decoration<br>
+                    <input type="radio" name="q3" value="c" id="q3c">c. font-weight<br>
+                    <input type="radio" name="q3" value="d" id="q3d">d. font-bold<br>
+
+                    <h3 id="question4">4. Which of the following is NOT a valid CSS value for the position property?</h3>
+                   <input type="radio" name="q4" value="a" id="q4a">a. static<br>
+                    <input type="radio" name="q4" value="b" id="q4b">b. relative<br>
+                    <input type="radio" name="q4" value="c" id="q4c">c. fixed<br>
+                    <input type="radio" name="q4" value="d" id="q4d">d. center<br>
+
+                    <h3 id="question5">5. What does the flex-grow property do in a flexbox container?</h3>
+                    <input type="radio" name="q5" value="a" id="q5a">a. Defines how much an item should grow relative to others<br>
+                    <input type="radio" name="q5" value="b" id="q5b">b. Controls the alignment of items<br>
+                    <input type="radio" name="q5" value="c" id="q5c">c. Sets the order of the flex items<br>
+                    <input type="radio" name="q5" value="d" id="q5d">d. Specifies the direction of the flex container<br>
+                    <br><br>
+                    <input type="submit" value="Submit Answers">
+                </form>
+               
+            </section>
+            <footer>
+                <p>Copyright &copy; 2025, All Rights Reserved</p>
+            </footer>
+        </div>
+    <script type="text/javascript">
+    function submitAnswers(){
+    var total = 5;
+    var score = 0;
+   
+    // Get User Input
+    var q1 = document.forms["quizForm"]["q1"].value;
+    var q2 = document.forms["quizForm"]["q2"].value;
+    var q3 = document.forms["quizForm"]["q3"].value;
+    var q4 = document.forms["quizForm"]["q4"].value;
+    var q5 = document.forms["quizForm"]["q5"].value;
+   
+    // Validation
+    for(i = 1; i <= total;i++){
+        if(eval('q'+i) == null || eval('q'+i) == ''){
+            alert('You missed question '+ i);
+            return false;
+        }
+    }
+   
+    // Set Correct Answers
+    var answers = ["b","c","c","d","a"];
+   
+    // Check Answers
+    for(i = 1; i <= total;i++){
+        if(eval('q'+i) == answers[i - 1]){
+            score++;
+        }
+    }
+   
+    document.getElementById('results').innerHTML = '<h3>You scored <span>'+score+'</span> out of <span>'+total+'</span></h3>';
+    return false;
+}
+        </script>
+
+    </body>    
+</html>

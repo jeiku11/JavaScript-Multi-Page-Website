@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Digital Clock</title>
+    <style>
+        body {
+            font-family: Courier, sans-serif;
+            background-color: #282c34;
+            color: white;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+        }
+        #time {
+            font-size: 48px;
+            background-color: #333;
+            padding: 10px;
+            border-radius: 10px;
+        }
+    </style>
+</head>
+<body onload="digitalClock()">
+    <h1>Digital Clock</h1>
+    <div id="time"></div>
+
+    <script type="text/javascript">
+        function digitalClock() {
+            var strtoday = new Date();
+            var inthours = strtoday.getHours();
+            var intminutes = strtoday.getMinutes();
+            var intseconds = strtoday.getSeconds();
+            var period = "AM";
+
+            if (inthours >= 12) {
+                period = "PM";
+            }
+            if (inthours > 12) {
+                inthours = inthours - 12;
+            }
+            if (inthours == 0) {
+                inthours = 12;
+            }
+            if (intseconds < 10) {
+                intseconds = "0" + intseconds;
+            }
+            if (intminutes < 10) {
+                intminutes = "0" + intminutes;
+            }
+
+            document.getElementById("time").innerHTML = inthours + ":" + intminutes + ":" + intseconds + " " + period;
+            setTimeout(digitalClock, 1000);
+        }
+    </script>
+</body>
+</html>
